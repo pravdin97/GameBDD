@@ -36,6 +36,12 @@ public class FindErrorsTest {
         Assert.assertTrue(checkResult);
     }
 
+    @And("^Игра сообщает пользователю, что ответ корректен$")
+    public void играСообщаетПользователюЧтоОтветКорректен() {
+        String expected = "Верно!";
+        Assert.assertEquals(expected, game.getMessage());
+    }
+
     @Then("^Текущим заданием становится следующее задание в игре$")
     public void текущимЗаданиемСтановитсяСледующееЗаданиеВИгре() {
         Assert.assertNotEquals(currentTask, game.getCurrentTask());
@@ -43,13 +49,20 @@ public class FindErrorsTest {
     
     @When("^Пользователь вводит некооректный ответ на задание (\\d+)$")
     public void пользовательВводитНекооректныйОтветНаЗадание(int arg0) {
+        answer = new ArrayList<Integer>();
+        answer.add(arg0);
     }
 
     @And("^Игра сообщает пользователю, что ответ некорректен$")
     public void играСообщаетПользователюЧтоОтветНекорректен() {
+        String expected = "Вы ошиблись!";
+        Assert.assertEquals(expected, game.getMessage());
     }
 
     @And("^Текущиее задание остается прежним$")
     public void текущиееЗаданиеОстаетсяПрежним() {
+        Assert.assertEquals(currentTask, game.getCurrentTask());
     }
+
+
 }
