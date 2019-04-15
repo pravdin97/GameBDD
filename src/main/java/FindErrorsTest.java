@@ -2,6 +2,8 @@ import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import model.Game;
+import model.Task;
 import org.junit.Assert;
 
 import java.util.ArrayList;
