@@ -1,4 +1,5 @@
 import cucumber.api.PendingException;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
@@ -39,6 +40,16 @@ public class FindErrorsTest {
     public void текущимЗаданиемСтановитсяСледующееЗаданиеВИгре() {
         Assert.assertNotEquals(currentTask, game.getCurrentTask());
     }
+    
+    @When("^Пользователь вводит некооректный ответ на задание (\\d+)$")
+    public void пользовательВводитНекооректныйОтветНаЗадание(int arg0) {
+    }
 
+    @And("^Игра сообщает пользователю, что ответ некорректен$")
+    public void играСообщаетПользователюЧтоОтветНекорректен() {
+    }
 
+    @And("^Текущиее задание остается прежним$")
+    public void текущиееЗаданиеОстаетсяПрежним() {
+    }
 }
