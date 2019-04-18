@@ -29,13 +29,18 @@ public class Game {
     }
 
     public boolean checkAnswer(ArrayList<Integer> answer) {
-        if (answer.get(0) == 1) {
-            status = "Верно!";
-            currentIndex++;
+        ArrayList<Integer> realAnswers = tasks.get(currentIndex).getErrorLineIndexes();
+        int countGoodAnswers = 0;
+        for (Integer ans: answer) {
+            if (realAnswers.contains(ans))
+                countGoodAnswers++;
         }
-        else {
+        if (countGoodAnswers != realAnswers.size()) {
             status = "Вы ошиблись!";
+            return false;
         }
+        status = "Верно!";
+        currentIndex++;
         return true;
     }
 
