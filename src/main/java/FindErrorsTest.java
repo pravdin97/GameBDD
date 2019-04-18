@@ -72,6 +72,6 @@ public class FindErrorsTest {
     @Then("^Проверяется неверность ответа$")
     public void проверяетсяНеверностьОтвета() {
         boolean checkResult = game.checkAnswer(answer);
-        Assert.assertTrue(checkResult);
+        Assert.assertFalse(checkResult);
     }
 }

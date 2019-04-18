@@ -32,8 +32,12 @@ public class Game {
         ArrayList<Integer> realAnswers = tasks.get(currentIndex).getErrorLineIndexes();
         int countGoodAnswers = 0;
         for (Integer ans: answer) {
-            if (realAnswers.contains(ans))
-                countGoodAnswers++;
+            if (!realAnswers.contains(ans))
+            {
+                status = "Вы ошиблись!";
+                return false;
+            }
+            countGoodAnswers++;
         }
         if (countGoodAnswers != realAnswers.size()) {
             status = "Вы ошиблись!";
