@@ -1,0 +1,4 @@
+interface klass Car {
+    public void start();
+    public void stop();
+}

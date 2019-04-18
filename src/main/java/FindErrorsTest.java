@@ -17,6 +17,10 @@ public class FindErrorsTest {
     @Given("^Имеется экземпляр игры$")
     public void имеетсяЭкземплярИгры() {
         game = new Game();
+        game.setFolders(getClass().getResource("/task").getPath(),
+                getClass().getResource("/answer").getPath());
+        game.readTasks();
+        game.readAnswers();
     }
 
     @Given("^В игре есть текущее задание$")
@@ -64,7 +68,6 @@ public class FindErrorsTest {
     public void текущиееЗаданиеОстаетсяПрежним() {
         Assert.assertEquals(currentTask, game.getCurrentTask());
     }
-
 
     @Then("^Проверяется неверность ответа$")
     public void проверяетсяНеверностьОтвета() {

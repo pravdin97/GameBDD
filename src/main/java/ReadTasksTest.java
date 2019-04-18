@@ -23,17 +23,18 @@ public class ReadTasksTest {
     @When("^Создается экземпляр игры$")
     public void создаетсяЭкземплярИгры() {
         game = new Game();
+        game.setFolders(pathToTaskFolder, pathToAnswerFolder);
     }
 
     @Then("^Происходит чтение всех заданий$")
     public void происходитЧтениеВсехЗаданий() {
-        game.readTasks(pathToTaskFolder);
+        game.readTasks();
         Assert.assertNotEquals(0, game.getAllTasks().size());
     }
 
     @And("^Происходит чтение всех ответов к заданиям$")
     public void происходитЧтениеВсехОтветовКЗаданиям() {
-        game.readAnswers(pathToAnswerFolder);
+        game.readAnswers();
         Assert.assertNotEquals(0, game.getAllTasks().get(0).getErrorLineIndexes().size());
     }
 }
