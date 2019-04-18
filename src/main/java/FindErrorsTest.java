@@ -40,6 +40,7 @@ public class FindErrorsTest {
     public void играСообщаетПользователюЧтоОтветКорректен() {
         String expected = "Верно!";
         Assert.assertEquals(expected, game.getMessage());
+        System.out.println();
     }
 
     @Then("^Текущим заданием становится следующее задание в игре$")
@@ -65,4 +66,9 @@ public class FindErrorsTest {
     }
 
 
+    @Then("^Проверяется неверность ответа$")
+    public void проверяетсяНеверностьОтвета() {
+        boolean checkResult = game.checkAnswer(answer);
+        Assert.assertTrue(checkResult);
+    }
 }
